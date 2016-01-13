@@ -63,8 +63,4 @@ class C extends B {
     String getXinClassA() {
         return super.getXinClassA();
     }
-
-    void writeXinClassA(String newValue) {
-        super.setXinClassA(newValue);
-    }
 }
