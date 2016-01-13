@@ -70,7 +70,7 @@ public class QuestionFour {
         keysString = keysString.substring(0, keysString.length() - 1);
         valuesString = valuesString.substring(0, valuesString.length() - 1);
 
-        String chartImageURL = String.format("https://chart.googleapis.com/chart?chs=250x100&chd=t:%s&cht=bvs&chco=4D89F9&chl=%s", valuesString, keysString);
+        String chartImageURL = String.format("https://chart.googleapis.com/chart?&chbh=30,05,10&chxt=y&chs=1000x300&chd=t:%s&cht=bvs&chco=4D89F9&chl=%s", valuesString, keysString);
 
         System.out.println("Bar chart URL: " + chartImageURL);
     }
