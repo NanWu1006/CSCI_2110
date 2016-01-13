@@ -19,6 +19,18 @@
             <arg value="doc.sh"/>
         </exec>
     </target>
+    <target name="submit">
+        <property name="assignment_name" value="B00696964_${ant.project.name}"/>
+        <mkdir dir="${assignment_name}"/>
+        <copy includeemptydirs="true" todir="${assignment_name}">
+            <fileset dir=".">
+                <include name="Q*/"/>
+                <include name="README.txt"/>
+                <include name="build.xml"/>
+            </fileset>
+        </copy>
+        <zip destfile="${assignment_name}.zip" basedir="${assignment_name}"/>
+    </target>
     <target name="compile" depends="init">
         <echo message="${ant.project.name} START COMPILE."/>
         <javac srcdir="${build_tmp}" destdir="${class_dest}" includeantruntime="on"/>
