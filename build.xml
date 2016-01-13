@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Lab_1" default="build" basedir=".">
+    <target name="build" depends="Lab_1">
+        <echo message="ALL PROJECTS COMPILE FINISHED."/>
+    </target>
+    <target name="Lab_1">
+        <echo message="START COMPILE Lab_1"/>
+        <ant antfile="Lab_1/build.xml" target="build"/>
+    </target>
+</project>

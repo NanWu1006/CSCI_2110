@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="Lab_1" default="clean" basedir=".">
-    <property name="src" value="src"/>
-    <property name="class_dest" value="out/classes"/>
-    <property name="production" value="out/production"/>
+    <property name="project_dir" value="Lab_1"/>
+    <property name="src" value="${project_dir}/src"/>
+    <property name="class_dest" value="${project_dir}/out/classes"/>
+    <property name="production" value="${project_dir}/out/production"/>
     <target name="init" depends="clean">
         <mkdir dir="${class_dest}"/>
         <mkdir dir="${production}"/>
     </target>
     <target name="compile" depends="init">
-        <javac srcdir="${src}" destdir="${class_dest}"/>
+        <javac srcdir="${src}" destdir="${class_dest}" includeantruntime="on"/>
     </target>
     <target name="build" depends="compile">
-
+        <echo message="${project_dir} COMPILE FINISHED."/>
     </target>
     <target name="clean">
         <delete dir="${class_dest}" />
