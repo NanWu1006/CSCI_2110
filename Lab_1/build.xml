@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="Lab_1" default="clean" basedir=".">
-    <property name="project_dir" value="Lab_1"/>
-    <property name="src" value="${project_dir}/src"/>
-    <property name="class_dest" value="${project_dir}/out/classes"/>
-    <property name="production" value="${project_dir}/out/production"/>
+    <property name="class_dest" value="out/classes"/>
+    <property name="production" value="out/production"/>
+    <property name="build_tmp" value="build_tmp"/>
     <target name="init" depends="clean">
         <mkdir dir="${class_dest}"/>
         <mkdir dir="${production}"/>
+        <mkdir dir="${build_tmp}"/>
+
+        <copy includeemptydirs="false" todir="build_tmp">
+            <fileset dir=".">
+                <include name="Q*/*/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="docs">
+        <exec executable="/bin/bash">
+            <arg value="doc.sh"/>
+        </exec>
     </target>
     <target name="compile" depends="init">
-        <javac srcdir="${src}" destdir="${class_dest}" includeantruntime="on"/>
+        <echo message="${ant.project.name} START COMPILE."/>
+        <javac srcdir="${build_tmp}" destdir="${class_dest}" includeantruntime="on"/>
     </target>
     <target name="build" depends="compile">
-        <echo message="${project_dir} COMPILE FINISHED."/>
+        <echo message="${ant.project.name} COMPILE FINISHED."/>
+        <delete dir="${build_tmp}"/>
+    </target>
+    <target name="test" depends="build">
+        <echo message="${ant.project.name} START TEST."/>
+        <exec executable="/bin/bash">
+            <arg value="test.sh"/>
+        </exec>
+        <echo message="${ant.project.name} TEST FINISHED."/>
     </target>
     <target name="clean">
-        <delete dir="${class_dest}" />
-        <delete dir="${production}" />
+        <delete dir="${class_dest}"/>
+        <delete dir="${production}"/>
     </target>
 </project>
