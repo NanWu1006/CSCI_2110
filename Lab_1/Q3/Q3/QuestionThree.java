@@ -47,20 +47,16 @@ class A {
 
 class B extends A {
     String x = "I am x in B";
-
-    String getXinClassA() {
-        return super.x;
-    }
-
-    void setXinClassA(String newValue) {
-        super.x = newValue;
-    }
 }
 
 class C extends B {
     String x = "I am x in C";
 
+    void setXinClassA(String newValue) {
+        ((A) this).x = newValue;
+    }
+
     String getXinClassA() {
-        return super.getXinClassA();
+        return ((A) this).x;
     }
 }

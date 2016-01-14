@@ -21,6 +21,10 @@
     </target>
     <target name="submit">
         <property name="assignment_name" value="B00696964_${ant.project.name}"/>
+
+        <delete dir="${assignment_name}"/>
+        <delete file="${assignment_name}.zip"/>
+
         <mkdir dir="${assignment_name}"/>
         <copy includeemptydirs="true" todir="${assignment_name}">
             <fileset dir=".">
