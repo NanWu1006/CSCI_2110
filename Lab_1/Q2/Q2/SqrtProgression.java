@@ -37,7 +37,7 @@ class Progression {
         this(0);
     }
 
-    public Progression(long start) {
+    public Progression(double start) {
         current = start;
     }
 
