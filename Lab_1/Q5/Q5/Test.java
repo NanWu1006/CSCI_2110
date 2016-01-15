@@ -18,5 +18,7 @@ public class Test {
         System.out.println("MyNameIsDickyDesu".contains("Dicky"));
 
         System.out.println(QuestionFive.isRotation("waterbottle", "erbottlewat"));
+
+        System.out.println("ALL TEST PASSED!");
     }
 }

@@ -4,6 +4,16 @@ Compile with ant using command 'ant build' in THIS directory.
 
 The compiled class files will be in out/classes
 
+
+==============================
+HOW TO RUN THE TEST:
+==============================
+
+ant test
+
+
+
+
 Run:
 
 To run class files, use java, following the PACKAGE_NAME.CLASS_NAME.
