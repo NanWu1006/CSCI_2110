@@ -4,7 +4,7 @@ for dir in *; do
 		cd ${dir}
 		echo "${dir}"
 		ant test
-		echo "\n\n"
+		echo -e "\n\n"
 		cd ..
 	fi
 done
