@@ -1,45 +1,13 @@
 package Q3;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 /**
  * Created by KanzakiMirai on 1/21/16.
  */
 public class QuestionThree {
     public static SinglyLinkedList<Integer> addSLists (SinglyLinkedList<Integer> L1,
                                                        SinglyLinkedList<Integer> L2) {
-        /**
-         * first convert singly linked list INTO ArrayList
-         */
-        ArrayList<String> firstValAL = new ArrayList<>();
-        for (int i = 0; i < L1.size(); i++) {
-            firstValAL.add(L1.get(i).toString());
-        }
-        /**
-         * REVERSE
-         */
-        Collections.reverse(firstValAL);
-
-        /**
-         * RESTORE into a normal value String
-         */
-        String firstVal = "";
-        for (String eachStr : firstValAL) {
-            firstVal += eachStr;
-        }
-
-
-        ArrayList<String> secondValAL = new ArrayList<>();
-        for (int i = 0; i < L2.size(); i++) {
-            secondValAL.add(L2.get(i).toString());
-        }
-        Collections.reverse(secondValAL);
-
-        String secondVal = "";
-        for (String eachStr : secondValAL) {
-            secondVal += eachStr;
-        }
+        Integer firstVal = parseIntFromList(L1);
+        Integer secondVal = parseIntFromList(L2);
 
         System.out.println("firstVal = " + firstVal);
         System.out.println("secondVal = " + secondVal);
@@ -47,7 +15,7 @@ public class QuestionThree {
         /**
          * ADD OPERATION
          */
-        String resultVal = Integer.toString(Integer.parseInt(firstVal) + Integer.parseInt(secondVal));
+        String resultVal = Integer.toString(firstVal + secondVal);
 
         SinglyLinkedList<Integer> resultLL = new SinglyLinkedList<>();
 
@@ -58,5 +26,20 @@ public class QuestionThree {
         System.out.println("result = " + resultVal);
 
         return resultLL;
+    }
+
+    static Integer parseIntFromList(SinglyLinkedList<Integer> inputL) {
+        Integer result = 0;
+        /**
+         * FOR EXAMPLE number 123
+         * presented as [3, 2, 1]
+         * equals to 1 * 10^0 + 2 * 10^1 + 3 * 10^2
+         *
+         * which can presented as 10^i
+         */
+        for (int i = 0; i < inputL.size(); i++) {
+            result = result + ( inputL.get(i) * ((Double)Math.pow(10, i)).intValue() );
+        }
+        return result;
     }
 }

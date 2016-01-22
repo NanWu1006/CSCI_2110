@@ -36,18 +36,23 @@ ALL TEST PASSED!
 RUNNING TEST FOR Q3
 firstVal = 513
 secondVal = 295
+result = 808
 Test #1 PASS!
 firstVal = 798
 secondVal = 1404
+result = 2202
 Test #2 PASS!
 firstVal = 6
 secondVal = 94
+result = 100
 Test #3 PASS!
 firstVal = 798
 secondVal = 0
+result = 798
 Test #4 PASS!
 firstVal = 921
 secondVal = 9
+result = 930
 Test #5 PASS!
 ALL TEST PASSED!
 
