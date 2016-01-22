@@ -55,6 +55,8 @@ public class QuestionThree {
             resultLL.add(Integer.parseInt(String.valueOf(eachChar)));
         }
 
+        System.out.println("result = " + resultVal);
+
         return resultLL;
     }
 }
