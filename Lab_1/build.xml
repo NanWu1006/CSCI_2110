@@ -19,7 +19,7 @@
             <arg value="doc.sh"/>
         </exec>
     </target>
-    <target name="submit" depends="build">
+    <target name="submit" depends="build,docs">
         <property name="assignment_name" value="B00696964_${ant.project.name}"/>
         <property name="test_output" value="sample_test_result"/>
 
