@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="BUILD_ALL" basedir=".">
-    <target name="test" depends="build">
+<project name="CSCI_2110" basedir="." default="test">
+    <target name="test">
         <exec executable="/bin/bash">
             <arg value="test.sh"/>
         </exec>
