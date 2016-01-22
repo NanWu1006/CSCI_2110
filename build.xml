@@ -3,10 +3,29 @@
     <target name="test" depends="build">
         <echo message="ALL PROJECTS TEST FINISHED."/>
     </target>
-    <target name="build" depends="Lab_1">
+    <target name="build" depends="Lab_1,Lab_2">
         <echo message="ALL PROJECTS COMPILE FINISHED."/>
     </target>
     <target name="Lab_1">
-        <ant antfile="Lab_1/build.xml" target="test"/>
+        <script language="javascript">
+            project.setNewProperty("current_target", self.getOwningTarget());
+        </script>
+        <ant antfile="${current_target}/build.xml" target="build"/>
+        <echo message="${current_target} START TEST."/>
+        <exec executable="/bin/bash">
+            <arg value="${current_target}/test.sh"/>
+        </exec>
+        <echo message="${current_target} TEST FINISHED."/>
+    </target>
+    <target name="Lab_2">
+        <script language="javascript">
+            project.setNewProperty("current_target", self.getOwningTarget());
+        </script>
+        <ant antfile="${current_target}/build.xml" target="build"/>
+        <echo message="${current_target} START TEST."/>
+        <exec executable="/bin/bash">
+            <arg value="${current_target}/test.sh"/>
+        </exec>
+        <echo message="${current_target} TEST FINISHED."/>
     </target>
 </project>
