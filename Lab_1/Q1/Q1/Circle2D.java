@@ -12,7 +12,8 @@ package Q1;
  *
  * @author Diqi Zeng
  */
-public class Circle2D {
+public class
+        Circle2D {
     protected double x;
     protected double y;
     protected double radius;

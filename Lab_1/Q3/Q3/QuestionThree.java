@@ -38,6 +38,7 @@ public class QuestionThree {
         System.out.println(String.format("Old value in A: %s", c.getXinClassA()));
         c.setXinClassA("this variable is changed by exampleThree");
         System.out.println(String.format("New value in A: %s", c.getXinClassA()));
+        System.out.println(String.format("Now value in C: %s", c.x));
     }
 }
 
