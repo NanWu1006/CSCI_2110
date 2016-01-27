@@ -8,9 +8,6 @@ import java.util.HashMap;
  * @author Diqi Zeng
  */
 public class QuestionTwo {
-    static int X_AXIS_RATE = 1000;
-    static int Y_AXIS_RATE = 10;
-
     /**
      * apply the insertion sort
      * @param array the ARRAY
@@ -54,11 +51,20 @@ public class QuestionTwo {
     }
 
     public static void main(String[] args) {
-        String is = insertionSortStat();
-        String ss = selectionSortStat();
-        String dataString = is + "|" + ss;
+        ArrayList<HashMap<String, String>> is = insertionSortStat();
+        ArrayList<HashMap<String, String>> ss = selectionSortStat();
+
         System.out.println();
-        System.out.println(String.format("https://chart.googleapis.com/chart?cht=lxy&chs=1000x300&chd=t:%s&chco=3072F3,ff0000,00aaaa&chls=2,4,1&chm=s,000000,0,-1,5|s,000000,1,-1,5&chdl=InsertionSort|SelectionSort&chdlp=t&chxt=x,y&chxl=0:|5000|100000|1:||0||1000||", dataString));
+        System.out.println("------RESULT------");
+        System.out.println("INSERTION SORT");
+        for (HashMap<String, String> eachData : is) {
+            System.out.println(String.format("Array Length: %s  |  Avg. Time: %sms", eachData.get("LENGTH"), eachData.get("TIME")));
+        }
+        System.out.println();
+        System.out.println("SELECTION SORT");
+        for (HashMap<String, String> eachData : ss) {
+            System.out.println(String.format("Array Length: %s  |  Avg. Time: %sms", eachData.get("LENGTH"), eachData.get("TIME")));
+        }
     }
 
     /**
@@ -77,13 +83,11 @@ public class QuestionTwo {
         return ((Double)(Math.floor(Math.random() * (end - start)) + start)).intValue();
     }
 
-    public static String insertionSortStat() {
+    public static ArrayList<HashMap<String, String>> insertionSortStat() {
         ArrayList<HashMap<String, String>> statData = new ArrayList<>();
 
-        ArrayList<String> arraySizeList = new ArrayList<>();
-        ArrayList<String> avgTimeList = new ArrayList<>();
-
         for (int i = 5000; i <= 100000; i+=5000) {
+//        for (int i = 5000; i <= 10000; i+=5000) {
             System.out.println("Running insertion sort stat for array length " + i);
             long timesum = 0;
             for (int x = 0; x < 5; x++) {
@@ -101,26 +105,21 @@ public class QuestionTwo {
             long avgTime = timesum / 5;
 
             HashMap<String, String> eachResult = new HashMap<>();
-            eachResult.put("Array Length", Integer.toString(i));
-            eachResult.put("Avg Time (ms)", Long.toString(avgTime));
-
-            arraySizeList.add(Integer.toString(i / X_AXIS_RATE));
-            avgTimeList.add(Long.toString(avgTime / Y_AXIS_RATE));
+            eachResult.put("LENGTH", Integer.toString(i));
+            eachResult.put("TIME", Long.toString(avgTime));
 
             statData.add(eachResult);
         }
-        System.out.println("STAT RESULT IS");
-        System.out.println(statData);
-        return String.join(",", arraySizeList) + "|" + String.join(",", avgTimeList);
+//        System.out.println("STAT RESULT IS");
+//        System.out.println(statData);
+        return statData;
     }
 
-    public static String selectionSortStat() {
+    public static ArrayList<HashMap<String, String>> selectionSortStat() {
         ArrayList<HashMap<String, String>> statData = new ArrayList<>();
 
-        ArrayList<String> arraySizeList = new ArrayList<>();
-        ArrayList<String> avgTimeList = new ArrayList<>();
-
         for (int i = 5000; i <= 100000; i+=5000) {
+//        for (int i = 5000; i <= 10000; i+=5000) {
             System.out.println("Running insertion sort stat for array length " + i);
             long timesum = 0;
             for (int x = 0; x < 5; x++) {
@@ -138,16 +137,13 @@ public class QuestionTwo {
             long avgTime = timesum / 5;
 
             HashMap<String, String> eachResult = new HashMap<>();
-            eachResult.put("Array Length", Integer.toString(i));
-            eachResult.put("Avg Time (ms)", Long.toString(avgTime));
-
-            arraySizeList.add(Integer.toString(i / X_AXIS_RATE));
-            avgTimeList.add(Long.toString(avgTime / Y_AXIS_RATE));
+            eachResult.put("LENGTH", Integer.toString(i));
+            eachResult.put("TIME", Long.toString(avgTime));
 
             statData.add(eachResult);
         }
-        System.out.println("STAT RESULT IS");
-        System.out.println(statData);
-        return String.join(",", arraySizeList) + "|" + String.join(",", avgTimeList);
+//        System.out.println("STAT RESULT IS");
+//        System.out.println(statData);
+        return statData;
     }
 }
