@@ -147,3 +147,48 @@ public class QuestionTwo {
         return statData;
     }
 }
+
+// ------RESULT------
+// INSERTION SORT
+// Array Length: 5000  |  Avg. Time: 7ms
+// Array Length: 10000  |  Avg. Time: 18ms
+// Array Length: 15000  |  Avg. Time: 39ms
+// Array Length: 20000  |  Avg. Time: 70ms
+// Array Length: 25000  |  Avg. Time: 111ms
+// Array Length: 30000  |  Avg. Time: 161ms
+// Array Length: 35000  |  Avg. Time: 221ms
+// Array Length: 40000  |  Avg. Time: 288ms
+// Array Length: 45000  |  Avg. Time: 367ms8
+// Array Length: 50000  |  Avg. Time: 453ms
+// Array Length: 55000  |  Avg. Time: 548ms
+// Array Length: 60000  |  Avg. Time: 655ms
+// Array Length: 65000  |  Avg. Time: 768ms
+// Array Length: 70000  |  Avg. Time: 890ms
+// Array Length: 75000  |  Avg. Time: 1022ms
+// Array Length: 80000  |  Avg. Time: 1163ms
+// Array Length: 85000  |  Avg. Time: 1315ms
+// Array Length: 90000  |  Avg. Time: 1475ms
+// Array Length: 95000  |  Avg. Time: 1644ms
+// Array Length: 100000  |  Avg. Time: 1822ms
+//
+// SELECTION SORT
+// Array Length: 5000  |  Avg. Time: 28ms
+// Array Length: 10000  |  Avg. Time: 102ms
+// Array Length: 15000  |  Avg. Time: 248ms
+// Array Length: 20000  |  Avg. Time: 290ms
+// Array Length: 25000  |  Avg. Time: 394ms
+// Array Length: 30000  |  Avg. Time: 567ms
+// Array Length: 35000  |  Avg. Time: 772ms
+// Array Length: 40000  |  Avg. Time: 1007ms
+// Array Length: 45000  |  Avg. Time: 1275ms
+// Array Length: 50000  |  Avg. Time: 1573ms
+// Array Length: 55000  |  Avg. Time: 1904ms
+// Array Length: 60000  |  Avg. Time: 2265ms
+// Array Length: 65000  |  Avg. Time: 2658ms
+// Array Length: 70000  |  Avg. Time: 3082ms
+// Array Length: 75000  |  Avg. Time: 3538ms
+// Array Length: 80000  |  Avg. Time: 4028ms
+// Array Length: 85000  |  Avg. Time: 4544ms
+// Array Length: 90000  |  Avg. Time: 5096ms
+// Array Length: 95000  |  Avg. Time: 5677ms
+// Array Length: 100000  |  Avg. Time: 6288ms

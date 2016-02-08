@@ -4,6 +4,7 @@
 object HelloScala {
   def main(args: Array[String]): Unit = {
     val myObject = new Scala(12)
-    println(myObject.myString())
+    val abc = "21";
+    println("${abc}")
   }
 }

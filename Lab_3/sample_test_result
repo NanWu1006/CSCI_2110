@@ -1,0 +1,24 @@
+RUNNING TEST FOR Q1
+  Operation   | Output  |  Deque
+addFirst(3)   |    -    |(3)
+addFirst(5)   |    -    |(5, 3)
+removeFirst() |    5    |(3)
+addFirst(1)   |    -    |(1, 3)
+addFirst(2)   |    -    |(2, 1, 3)
+addFirst(7)   |    -    |(7, 2, 1, 3)
+addFirst(9)   |    -    |(9, 7, 2, 1, 3)
+removeFirst() |    9    |(7, 2, 1, 3)
+getFirst()    |    7    |(7, 2, 1, 3)
+getLast()     |    3    |(7, 2, 1, 3)
+addLast(6)    |    -    |(7, 2, 1, 3, 6)
+addLast(4)    |    -    |(7, 2, 1, 3, 6, 4)
+addLast(8)    |    -    |(7, 2, 1, 3, 6, 4, 8)
+getLast()     |    8    |(7, 2, 1, 3, 6, 4, 8)
+removeFirst() |    7    |(2, 1, 3, 6, 4, 8)
+removeLast()  |    8    |(2, 1, 3, 6, 4)
+addLast(0)    |    -    |(2, 1, 3, 6, 4, 0)
+removeFirst() |    2    |(1, 3, 6, 4, 0)
+isEmpty()     |  false  |(1, 3, 6, 4, 0)
+size()        |    5    |(1, 3, 6, 4, 0)
+
+
