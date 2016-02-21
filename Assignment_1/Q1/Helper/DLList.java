@@ -1,14 +1,15 @@
-package Q1;
+package Helper;
 
 /**
- * Created by KanzakiMirai on 1/21/16.
+ * implementation of the generic DDList
+ * @author Diqi Zeng
  */
-public class DoublyLinkedList<E> {
+public class DLList<E> {
     private Node<E> header;
     private Node<E> trailer;
     private int size = 0;
 
-    public DoublyLinkedList() {
+    public DLList() {
         header = new Node<>(null, null, null);
         trailer = new Node<>(null, header, null);
         header.setNext(trailer);
@@ -140,9 +141,13 @@ public class DoublyLinkedList<E> {
         Node<E> predecessor = node.getPrev();
         Node<E> successor = node.getNext();
         predecessor.setNext(successor);
-        predecessor.setPrev(predecessor);
+        successor.setPrev(predecessor);
         size--;
         return node.getElement();
+    }
+
+    public E remove(int num) {
+        return remove(getNode(num));
     }
 
     public String toString() {
@@ -152,6 +157,22 @@ public class DoublyLinkedList<E> {
             currentNode = currentNode.getNext();
             result = result + currentNode.getElement() + ", ";
         }
-        return String.format("[%s]", result.substring(0, result.length() - 2));
+        String returnStr;
+        try {
+            returnStr = String.format("[%s]", result.substring(0, result.length() - 2));
+        }
+        catch (Exception e) {
+            returnStr = String.format("[%s]", result.substring(0, result.length()));
+        }
+        return returnStr;
+    }
+
+    public void combine(DLList<E> other) {
+        int added = 0;
+        Node<E> item = other.getNode(added);
+        for (int i = 0; i < other.size(); i++) {
+            this.add(item.getElement());
+            item = item.getNext();
+        }
     }
 }

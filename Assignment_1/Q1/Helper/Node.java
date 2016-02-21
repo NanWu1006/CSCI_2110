@@ -1,7 +1,7 @@
-package Q1;
+package Helper;
 
 /**
- * Created by KanzakiMirai on 1/21/16.
+ * @author Diqi Zeng
  */
 public class Node<E> {
     private E element;

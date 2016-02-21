@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Assignment_1" default="clean" basedir=".">
+    <property name="class_dest" value="out/classes"/>
+    <property name="production" value="out/production"/>
+    <property name="build_tmp" value="build_tmp"/>
+    <target name="init" depends="clean">
+        <mkdir dir="${class_dest}"/>
+        <mkdir dir="${production}"/>
+        <mkdir dir="${build_tmp}"/>
+
+        <copy includeemptydirs="false" todir="build_tmp">
+            <fileset dir=".">
+                <include name="Q*/*/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="docs">
+        <exec executable="/bin/bash">
+            <arg value="doc.sh"/>
+        </exec>
+    </target>
+    <target name="submit" depends="build,docs">
+        <property name="assignment_name" value="B00696964_${ant.project.name}"/>
+        <property name="test_output" value="sample_test_result"/>
+
+        <delete dir="${assignment_name}"/>
+        <delete file="${assignment_name}.zip"/>
+
+        <mkdir dir="${assignment_name}"/>
+        <exec executable="/bin/bash" output="${test_output}">
+            <arg value="test.sh"/>
+        </exec>
+        <copy includeemptydirs="true" todir="${assignment_name}">
+            <fileset dir=".">
+                <include name="Q*/"/>
+                <include name="README.txt"/>
+                <include name="test.sh"/>
+                <include name="${test_output}"/>
+                <include name="build.xml"/>
+            </fileset>
+        </copy>
+
+        <zip destfile="${assignment_name}.zip" basedir="${assignment_name}"/>
+    </target>
+    <target name="compile" depends="init">
+        <echo message="${ant.project.name} START COMPILE."/>
+        <javac srcdir="${build_tmp}" destdir="${class_dest}" includeantruntime="on"/>
+    </target>
+    <target name="build" depends="compile">
+        <echo message="${ant.project.name} COMPILE FINISHED."/>
+        <delete dir="${build_tmp}"/>
+    </target>
+    <target name="test" depends="build">
+        <echo message="${ant.project.name} START TEST."/>
+        <exec executable="/bin/bash">
+            <arg value="test.sh"/>
+        </exec>
+        <echo message="${ant.project.name} TEST FINISHED."/>
+    </target>
+    <target name="clean">
+        <delete dir="${class_dest}"/>
+        <delete dir="${production}"/>
+    </target>
+</project>
