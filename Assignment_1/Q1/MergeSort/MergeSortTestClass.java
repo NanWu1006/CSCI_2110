@@ -41,7 +41,18 @@ public class MergeSortTestClass {
         for(int i = 0; i < 50; i++) {
             doubleDLList.add((new Random()).nextDouble());
         }
-        Comparator<Double> doubleComparator = (o1, o2) -> (int)(o1 - o2);
+//        Comparator<Double> doubleComparator = (o1, o2) -> {
+//            if (o1 < o2) {
+//                return -1;
+//            }
+//            if (o1 > o2) {
+//                return 1;
+//            }
+//            else {
+//                return 0;
+//            }
+//        };
+        Comparator<Double> doubleComparator = Double::compare;
         System.out.println("Before: " + doubleDLList);
         MergeSort<Double> mergeSort = new MergeSort<Double>();
         DLList<Double> sorted = mergeSort.mergeSort(doubleDLList, doubleComparator);
